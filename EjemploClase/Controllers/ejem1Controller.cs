@@ -21,8 +21,8 @@ namespace Taller2_clase5.Controllers
         public IActionResult ConsultaCliente()
         {
             var miCliente = new Cliente();
-            miCliente.name= "tomi";
-            miCliente.edad= 21;
+            miCliente.Name= "tomi";
+            miCliente.Edad= 21;
             return View(miCliente);
         }
 
