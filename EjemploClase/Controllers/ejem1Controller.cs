@@ -14,7 +14,6 @@ namespace Taller2_clase5.Controllers
 
         public IActionResult Index(Cliente miCliente)
         {
-            
             return View(miCliente);
         }
 

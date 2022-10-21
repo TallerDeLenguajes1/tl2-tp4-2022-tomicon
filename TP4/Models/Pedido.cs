@@ -4,14 +4,15 @@ namespace TP4.Models;
 public enum Estados {entregado, enCamino, porSalir};
 public class Pedido
 {
+    private static int autonum=0;
     private int nro;
     private string obs;
     private Cliente usuario;
     private Estados estado;
 
-    public Pedido(int nro, string obs, Estados estado, int id, string nombre, string direccion, string telefono, string datosDirec)
+    public Pedido(string obs, Estados estado, int id, string nombre, string direccion, string telefono, string datosDirec)
     {
-        Nro = nro;
+        Nro = ++autonum;
         Obs = obs;
         usuario = new Cliente(id, nombre, direccion, telefono, datosDirec);
         Estado = estado;
