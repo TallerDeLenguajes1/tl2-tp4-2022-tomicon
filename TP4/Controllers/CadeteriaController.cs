@@ -22,7 +22,16 @@ namespace TP4.Controllers
         public void AltaCadete(int idCadete, string nombCadete, string apeCadete, string telCadete)
         {
             string linea= $"{idCadete};{nombCadete};{apeCadete};{telCadete}";
-            
+            string nombreArchivo= "Cadetes.csv";
+            bool archivoExiste= System.IO.File.Exists(nombreArchivo);
+            StreamWriter escritor = System.IO.File.AppendText(nombreArchivo);
+            if (!archivoExiste)
+            {
+                escritor.WriteLine("ID;Nombre;Apellido;Telefono");
+            }
+            escritor.WriteLine(linea);
+            escritor.Close();
+            // return View();
         }
 
         
