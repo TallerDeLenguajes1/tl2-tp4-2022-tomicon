@@ -19,7 +19,7 @@ namespace TP4.Controllers
         }
 
         [HttpPost]
-        public void AltaCadete(int idCadete, string nombCadete, string apeCadete, string telCadete)
+        public IActionResult AltaCadete(int idCadete, string nombCadete, string apeCadete, string telCadete)
         {
             string linea= $"{idCadete};{nombCadete};{apeCadete};{telCadete}";
             string nombreArchivo= "Cadetes.csv";
@@ -31,11 +31,16 @@ namespace TP4.Controllers
             }
             escritor.WriteLine(linea);
             escritor.Close();
-            // return View();
+            return View();
         }
 
         
         public IActionResult cargarCadete()
+        {
+            return View();
+        }
+
+        public IActionResult listarCadetes()
         {
             return View();
         }

@@ -1,0 +1,10 @@
+@{
+    string nombreArchivo= "Cadetes.csv";
+foreach(var linea in File.ReadAllLines(nombreArchivo))
+{
+    if(linea != "")
+    {
+        var informacion = linea.Split(";");
+    }
+}
+}
