@@ -18,15 +18,17 @@ namespace TP4.Controllers
             _logger = logger;
         }
 
-        public IActionResult AltaCadete()
+        [HttpPost]
+        public void AltaCadete(int idCadete, string nombCadete, string apeCadete, string telCadete)
         {
-            return View();
+            string linea= $"{idCadete};{nombCadete};{apeCadete};{telCadete}";
+            
         }
 
-        [HttpPost]
-        public void agregarCadete(int idCadete, string nombCadete, string apeCadete, string telCadete)
+        
+        public IActionResult cargarCadete()
         {
-            
+            return View();
         }
     }
 }
