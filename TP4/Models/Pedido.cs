@@ -1,4 +1,5 @@
 // See https://aka.ms/new-console-template for more information
+namespace TP4.Models;
 
 public enum Estados {entregado, enCamino, porSalir};
 public class Pedido

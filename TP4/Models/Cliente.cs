@@ -1,4 +1,5 @@
 // See https://aka.ms/new-console-template for more information
+namespace TP4.Models;
 public class Cliente : Persona
 {
     private string datosReferenciaDireccion;
