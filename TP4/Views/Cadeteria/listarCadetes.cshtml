@@ -19,6 +19,7 @@
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Telefono</th>
+                <th>Eliminar</th>
             </tr>
         </thead>
         <tbody>
@@ -26,7 +27,7 @@
                 string nombreArchivo = "Cadetes.csv";
                 foreach (var linea in File.ReadAllLines(nombreArchivo))
                 {
-                    if (linea != "")
+                    if (linea != "" && linea != "ID;Nombre;Apellido;Telefono")
                     {
                         var informacion = linea.Split(";");
                         <tr>
@@ -34,6 +35,7 @@
                             <td>@informacion[1]</td>
                             <td>@informacion[2]</td>
                             <td>@informacion[3]</td>
+                            <td><a href='@("bajaCadete?idCadete=" + informacion[0].ToString())' class="link-danger">Eliminar cadete</a></td>
                         </tr>
                     }
                 }

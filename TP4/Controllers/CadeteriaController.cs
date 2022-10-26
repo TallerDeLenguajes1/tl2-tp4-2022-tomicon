@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.IO;
 
 namespace TP4.Controllers
 {
@@ -43,6 +44,29 @@ namespace TP4.Controllers
         public IActionResult listarCadetes()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult bajaCadete(string idCadete)
+        {
+            string nombreArchivo = "Cadetes.csv";
+            List<string> lineasCadetes= new List<string>();
+                foreach (var linea in System.IO.File.ReadAllLines(nombreArchivo))
+                {
+                    if (linea != "")
+                    {
+                        var informacion = linea.Split(";");
+                        string id= informacion[0];
+                        if (id != idCadete.Trim())
+                        {
+                            string datosCadete=$"{informacion[0]};{informacion[1]};{informacion[2]};{informacion[3]}";
+                            lineasCadetes.Add(datosCadete);
+                        }
+                    }
+                }
+                System.IO.File.Delete("Cadetes.csv");
+                System.IO.File.WriteAllLines("Cadetes.csv",lineasCadetes);
+            return RedirectToAction("listarCadetes");
         }
     }
 }
